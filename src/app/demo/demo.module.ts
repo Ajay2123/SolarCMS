@@ -12,8 +12,9 @@ import { LayoutModule } from '@angular/cdk/layout';
   imports: [
     CommonModule,
     DemoRoutingModule,
+    LayoutModule,
+    MaterialModule,
     
-    MaterialModule
   ],
   declarations: [ButtonsComponent, FlexboxComponent]
 })

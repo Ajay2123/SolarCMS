@@ -1,3 +1,21 @@
-<p>
-  sidenav works!
-</p>
+
+<mat-drawer-container class="navigation-container">
+  <mat-drawer #drawer class="navigation-sidenav mat-elevation-z10"
+   [opened]="!isScreenSmall()" 
+   [mode]="isScreenSmall()?'over':'side'">
+      <mat-toolbar color="primary">Contacts</mat-toolbar>
+      <mat-list role="list">
+          <mat-list-item role="listitem">Item 1</mat-list-item>
+          <mat-list-item role="listitem">Item 2</mat-list-item>
+          <mat-list-item role="listitem">Item 3</mat-list-item>
+        </mat-list>
+  </mat-drawer>
+
+  <div class="navigation-sidenav-content">
+      <app-toolbar (toggleNavigation)="drawer.toggle()"></app-toolbar>
+      <div class="wrapper">
+          <router-outlet></router-outlet>
+      </div>
+  </div>
+
+</mat-drawer-container>
