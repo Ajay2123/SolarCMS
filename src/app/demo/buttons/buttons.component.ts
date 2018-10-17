@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
     <p>
     <button mat-button><mat-icon>home</mat-icon>Click me!</button>
     <mat-checkbox>Check me!</mat-checkbox>
+
     </p>
   `,
   styles: []

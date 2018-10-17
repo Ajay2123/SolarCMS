@@ -7,11 +7,14 @@ import { MainContentComponent } from './components/main-content/main-content.com
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 import { MaterialModule } from '../shared/material.module';
-import { FormsModule} from'@angular/forms';
+import { FormsModule, ReactiveFormsModule} from'@angular/forms';
 
 import { Routes, RouterModule } from '@angular/router';
 import { UserService } from './services/user.service';
-import {HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { NotesComponent } from './components/notes/notes.component';
+import { NewContactDialogComponent } from './components/new-contact-dialog/new-contact-dialog.component';
+import {  MatDatepickerModule } from '@angular/material';
 
 const routes: Routes = [
   {path:'',component:ContactmanagerAppComponent,
@@ -26,8 +29,10 @@ const routes: Routes = [
 @NgModule({
   imports: [
     MaterialModule,
+    MatDatepickerModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes),
     HttpClientModule
   ],
@@ -35,9 +40,12 @@ const routes: Routes = [
     ContactmanagerAppComponent,
     ToolbarComponent, 
     MainContentComponent, 
-    SidenavComponent],
+    SidenavComponent, NotesComponent, NewContactDialogComponent],
 
   providers:[
-      UserService]
+      UserService],
+      entryComponents:[
+        NewContactDialogComponent
+      ]
 })
 export class ContactmanagerModule { }

@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { NewContactDialogComponent } from '../new-contact-dialog/new-contact-dialog.component';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,9 +9,16 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
   @Output() toggleNavigation=new EventEmitter<void>();
-  constructor() { }
+  constructor(private dialog:MatDialog) { }
 
   ngOnInit() {
   }
-
+  openAddContactDialog():void{
+    let dialogRef=this.dialog.open(NewContactDialogComponent,{width:'450px'});
+    dialogRef.afterClosed()
+    .subscribe(result=>{
+      console.log('the dialog was closed',result);
+      error=>{console.log("Failed to add contact!");}
+    });
+  }
 }

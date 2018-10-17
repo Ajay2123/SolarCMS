@@ -28,6 +28,7 @@ export class SidenavComponent implements OnInit {
    }
 
    @ViewChild(MatDrawer) drawer:MatDrawer;
+   
   ngOnInit() {
     this.users=this.userService.users;
     this.userService.loadAll();
