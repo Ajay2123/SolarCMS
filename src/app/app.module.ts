@@ -8,6 +8,7 @@ import { ProductListComponent } from './products/product-list.component';
 import { ConvertToSpacesPipe } from './shared/convertToSpaces.pipe';
 import { MaterialModule } from './shared/material.module';
 
+import {HttpClientModule } from '@angular/common/http';
 import { Routes,RouterModule} from '@angular/router';
 const routes: Routes = [
   {path:'contactmanager',loadChildren:'./contactmanager/contactmanager.module#ContactmanagerModule'},
@@ -22,13 +23,13 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     MaterialModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   declarations: [ 
     AppComponent,
     ProductListComponent,
     ConvertToSpacesPipe,
-    
   ],
   providers: [],
   bootstrap: [

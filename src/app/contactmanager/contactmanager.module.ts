@@ -10,14 +10,17 @@ import { MaterialModule } from '../shared/material.module';
 import { FormsModule} from'@angular/forms';
 
 import { Routes, RouterModule } from '@angular/router';
+import { UserService } from './services/user.service';
+import {HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {path:'',component:ContactmanagerAppComponent,
               children:[
+                {path:':id',component:MainContentComponent},
                 {path:'',component:MainContentComponent}
               ]},
  
-  {path:'**',redirectTo:' '}
+  {path:'**',redirectTo:''}
 ];
 
 @NgModule({
@@ -25,12 +28,16 @@ const routes: Routes = [
     MaterialModule,
     CommonModule,
     FormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    HttpClientModule
   ],
   declarations: [
     ContactmanagerAppComponent,
     ToolbarComponent, 
     MainContentComponent, 
-    SidenavComponent]
+    SidenavComponent],
+
+  providers:[
+      UserService]
 })
 export class ContactmanagerModule { }
