@@ -18,7 +18,7 @@ get listFilter():string{
 }
 set listFilter(value:string){
    this._listFilter=value;
-   this.filteredProducts=this.listFilter?this.performFilter(this.listFilter):this.products;
+   this.filteredProducts=this.listFilter? this.performFilter(this.listFilter) : this.products;
 }
 
  filteredProducts:Iproduct[];
@@ -44,8 +44,8 @@ set listFilter(value:string){
    }
  ];
 construstor(){
-  this.filteredProducts=this.products;
-  this.listFilter='salad';
+  this.filteredProducts = this.products;
+  this._listFilter = 'sala';
 }
  toggleImage():void{
    this.showImage= !this.showImage;
@@ -57,7 +57,5 @@ construstor(){
     IndividualProduct.productName.toLocaleLowerCase().indexOf(filterBy)!==-1);
 }
  ngOnInit():void{
-   let i:number=1;
-  console.log('In products list ?'+i)
  }
 }
